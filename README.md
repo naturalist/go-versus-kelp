@@ -29,5 +29,84 @@ The Code
 --------
 
 1. The Go code is contained in one file [server.go](https://github.com/naturalist/go-versus-kelp/blob/master/serve.go)
-1. Perl Kelp has one code file [app.psgi](https://github.com/naturalist/go-versus-kelp/blob/master/app.psgi) and one config file.
+1. Perl Kelp has one code file [app.psgi](https://github.com/naturalist/go-versus-kelp/blob/master/app.psgi) and one [config file](https://github.com/naturalist/go-versus-kelp/blob/master/conf/config.pl).
+1. Set up nginx to look for an upstream at `127.0.0.1:8080`
+1. Prepare a [file with URLs](https://github.com/naturalist/go-versus-kelp/blob/master/urls.txt) for `siege`.
 
+The Benchmarks
+--------------
+
+1. Go
+1.1. Run the http server: `./server`
+1.1. Siege the server with one concurrent user:
+
+    > siege -b -c 1 -t 20s -f urls.txt
+
+    Transactions:               4207 hits
+    Availability:             100.00 %
+    Elapsed time:              19.56 secs
+    Data transferred:           0.05 MB
+    Response time:              0.00 secs
+    Transaction rate:         215.08 trans/sec
+    Throughput:             0.00 MB/sec
+    Concurrency:                0.94
+    Successful transactions:        4207
+    Failed transactions:               0
+    Longest transaction:            1.83
+    Shortest transaction:           0.00
+
+1.1. Siege the server with four concurrent users:
+
+    > siege -b -c 4 -t 20s -f urls.txt
+
+    Transactions:              20960 hits
+    Availability:             100.00 %
+    Elapsed time:              19.42 secs
+    Data transferred:           0.27 MB
+    Response time:              0.00 secs
+    Transaction rate:        1079.30 trans/sec
+    Throughput:             0.01 MB/sec
+    Concurrency:                3.98
+    Successful transactions:       20960
+    Failed transactions:               0
+    Longest transaction:            0.80
+    Shortest transaction:           0.00
+
+1. Perl Kelp
+1.1. Run the http server: `plackup -E deployment -s Starman -p 8080`
+1.1. Siege the server with one concurrent user:
+
+    > siege -b -c 1 -t 20s -f urls.txt
+
+    Transactions:               4651 hits
+    Availability:             100.00 %
+    Elapsed time:              19.33 secs
+    Data transferred:           0.06 MB
+    Response time:              0.00 secs
+    Transaction rate:         240.61 trans/sec
+    Throughput:             0.00 MB/sec
+    Concurrency:                1.00
+    Successful transactions:        4651
+    Failed transactions:               0
+    Longest transaction:            1.91
+    Shortest transaction:           0.00
+
+1.1. Siege the server with four concurrent users:
+
+    > siege -b -c 4 -t 20s -f urls.txt
+
+    Transactions:              11842 hits
+    Availability:             100.00 %
+    Elapsed time:              19.48 secs
+    Data transferred:           0.15 MB
+    Response time:              0.01 secs
+    Transaction rate:         607.91 trans/sec
+    Throughput:             0.01 MB/sec
+    Concurrency:                3.98
+    Successful transactions:       11842
+    Failed transactions:               0
+    Longest transaction:            0.02
+    Shortest transaction:           0.00
+
+Analysis
+--------

@@ -115,14 +115,14 @@ The Benchmarks
 Speed
 -----
 
-Go and Kelp show approximately equal results when sieged by a single user. Go, however, is about 45% faster when four concurrent users are sieging the server. This was well expected, of course, after all Go is a lower lever compiled language, and Perl is a scripting language.
+Go and Kelp show approximately equal results when sieged by a single user. Go, however, is about 45% faster when four concurrent users are sieging the server. This was well expected, of course, after all Go is a lower level compiled language, and Perl is a scripting language.
 
 **Winner: Go**
 
 JSON encoding/decoding
 ----------------------
 
-Go doesn't handle arbitrary JSON structures. You can't just send any JSON and expect Go's oddly named function `Unmarshal` to figure it out. You have to have the exact structure, so you can first define it.
+Go doesn't handle arbitrary JSON structures. You can't just send any JSON and expect Go's oddly named function `Unmarshal` to figure it out. You have to know the exact structure, and you must first define it.
 
 ```go
 type Message struct {

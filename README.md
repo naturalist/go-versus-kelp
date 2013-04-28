@@ -1,6 +1,9 @@
 The Go programming language has been very aggressively advertised lately. A quick look at the titles on Hacker News is enough to convince anyone that they must switch to Go immediately or risk being left behind.
+
 I tried Go and I thought it was nice, but a few things I didn't like about it made me abandon it. I won't be discussing any details here *cough* no triadic operator *cough*, but instead I am going to try to figure out, with the help of benchmarks and common sense, if Go is suitable for web development.
+
 First, let's make sure we all understand each other here. It's 2013 and any server side language is only good for server side stuff. No contemporary web application will render HTML using the sever side. This is the front-end's job. The back end needs to parse and return JSON. That's all.
+
 No analysis matters, unless it uses a comparison. This is why, I've chosen Perl and its Kelp web framework to see how Go compares.
 
 The Setup

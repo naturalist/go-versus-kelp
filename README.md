@@ -117,7 +117,7 @@ Speed
 
 Go and Kelp show approximately equal results when sieged by a single user. Go, however, is about 45% faster when four concurrent users are sieging the server. This was well expected, of course, after all Go is a lower lever compiled language, and Perl is a scripting language.
 
-*Winner: Go*
+**Winner: Go**
 
 JSON encoding/decoding
 ----------------------
@@ -133,7 +133,7 @@ type Message struct {
 
 The above definition allows for this structure `{"X":"bar","Y":"foo"}`. If you (or a client using your API) sends another key, `{"X":"bar","Y":"foo","Z":"baz"}` for example, the "Z" key will be lost. Perl, on the other hand will keep it. Anyone who has worked at a company with more than three server-side developers will tell you, that it is quite often that you don't know the exact structure of your JSON input and output. Yes, you can define a long structure covering every single option, but that sounds like a big pain. Perl makes it easier to deal with JSON.
 
-Winner: Perl
+**Winner: Perl**
 
 Length and readability
 ----------------------
@@ -150,8 +150,9 @@ It's very clear what's happening here, you define an HTTP GET route that catches
 
 Go, while also clear to any developer with enough experience, requires more writing and more reading. This is where some of you may say "But Perl has all those weird symbols, and semicolons and stuff". My answer to you is that if these kind of things bother you, then you're not fit for a programmer and you should consider a career in fashion design and beauty.
 
+**Winner: Perl Kelp**
 
 Final conclusions
 -----------------
 
-When it comes to web development, writing Go for faster performance is not worth the trouble. It gets too verbose and its JSON handling is too strict. For the sake of rapid development and your own sanity, consider using an elegant web framework such as [Kelp](https://metacpan.org/module/Kelp).
+When it comes to web development, writing Go for faster performance is not worth the trouble. It gets too verbose and its JSON handling is too strict. For the sake of rapid development and your own sanity, consider using a scripted language and an elegant web framework such as [Kelp](https://metacpan.org/module/Kelp).

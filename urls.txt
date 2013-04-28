@@ -1,0 +1,5 @@
+http://localhost:8081/put/hjk/zxc
+http://localhost:8081/put/vbn/bnm
+http://localhost:8081/put/ytr/mnb
+http://localhost:8081/get?p=%7B%22X%22%3A%22bar%22%2C%22Y%22%3A%22foo%22%7D
+http://localhost:8081/get?p=%7B%22X%22%3A%22many%22%2C%22Y%22%3A%22sheep%22%7D

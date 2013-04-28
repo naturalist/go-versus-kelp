@@ -36,9 +36,10 @@ The Code
 The Benchmarks
 --------------
 
-1. Go
-1.1. Run the http server: `./server`
-1.1. Siege the server with one concurrent user:
+### Go
+
+1. Run the http server: `./server`
+1. Siege the server with one concurrent user:
 
     > siege -b -c 1 -t 20s -f urls.txt
 
@@ -55,7 +56,7 @@ The Benchmarks
     Longest transaction:            1.83
     Shortest transaction:           0.00
 
-1.1. Siege the server with four concurrent users:
+1. Siege the server with four concurrent users:
 
     > siege -b -c 4 -t 20s -f urls.txt
 
@@ -72,9 +73,10 @@ The Benchmarks
     Longest transaction:            0.80
     Shortest transaction:           0.00
 
-1. Perl Kelp
-1.1. Run the http server: `plackup -E deployment -s Starman -p 8080`
-1.1. Siege the server with one concurrent user:
+### Perl Kelp
+
+1. Run the http server: `plackup -E deployment -s Starman -p 8080`
+1. Siege the server with one concurrent user:
 
     > siege -b -c 1 -t 20s -f urls.txt
 
@@ -91,7 +93,7 @@ The Benchmarks
     Longest transaction:            1.91
     Shortest transaction:           0.00
 
-1.1. Siege the server with four concurrent users:
+1. Siege the server with four concurrent users:
 
     > siege -b -c 4 -t 20s -f urls.txt
 

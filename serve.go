@@ -32,8 +32,10 @@ func PutJSON(w http.ResponseWriter, req *http.Request) {
 
 func GetJSON(w http.ResponseWriter, req *http.Request) {
 	p := req.URL.Query().Get("p")
-	var message Message
-	err := json.Unmarshal([]byte(p), &message)
+	// accept arbitrary json and do not decode into typed values
+	// see http://blog.golang.org/2011/01/json-and-go.html
+	var f interface{}
+	err := json.Unmarshal([]byte(p), &f)
 	w.Header().Add("Content-Type", "text/plain")
 	if err != nil {
 		io.WriteString(w, "ERROR: "+err.Error())
